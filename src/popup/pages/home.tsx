@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Badge, Card, Col, Row, Typography } from "antd";
 const { Text, Title } = Typography;
 // @ts-ignore
@@ -16,7 +16,6 @@ const sources = [
 ];
 
 const Home = () => {
-  const [sourceId, setSourceId] = useState<number>();
   return (
     <Row gutter={[32, 32]}>
       <Col span={24}>
@@ -37,7 +36,6 @@ const Home = () => {
           className={clsx("sources-card", {
             disabled: source.disabled,
             enable: !source.disabled,
-            active: sourceId === source.id,
           })}
         >
           {source.disabled ? (
@@ -46,13 +44,7 @@ const Home = () => {
             </Badge.Ribbon>
           ) : (
             <Link to={source.link || "/"}>
-              <Card
-                onClick={() => {
-                  setSourceId(source.id);
-                }}
-              >
-                {source?.name}
-              </Card>
+              <Card>{source?.name}</Card>
             </Link>
           )}
         </Col>

@@ -2,10 +2,14 @@ body {
   height: 536px;
   width: 348px;
   margin: 0;
-  padding: 1rem;
+  padding: 1.5rem;
   overflow: auto;
   overflow-x: hidden;
   border-radius: 1rem;
+
+  .color-primary {
+    color: #2f54eb;
+  }
 }
 
 .sources-card {
@@ -16,16 +20,22 @@ body {
     top: -8px;
   }
 
+  .ant-card {
+    transition: all 0.4s ease-in-out;
+  }
+
+  &:hover {
+    .ant-card {
+      background-color: #2f54eb;
+    }
+  }
+
   &.enable {
     .ant-card {
       border-color: #2f54eb;
     }
   }
-  &.active {
-    .ant-card {
-      background-color: #2f54eb;
-    }
-  }
+
   &.disabled {
     cursor: default;
     .ant-card {
