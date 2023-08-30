@@ -4,10 +4,11 @@ const { Text, Title } = Typography;
 // @ts-ignore
 import { UilSearch } from "@iconscout/react-unicons";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 const sources = [
-  { id: 1, name: "jobibja" },
-  { id: 2, name: "linkedIn" },
+  { id: 1, name: "jobinja", link: "jobinja" },
+  { id: 2, name: "linkedIn", link: "linkedIn" },
   { id: 3, name: "ایران استخدام", disabled: true },
   { id: 4, name: "جاب ویژن", disabled: true },
   { id: 5, name: "کاربانک", disabled: true },
@@ -44,13 +45,15 @@ const Home = () => {
               <Card>{source?.name}</Card>
             </Badge.Ribbon>
           ) : (
-            <Card
-              onClick={() => {
-                setSourceId(source.id);
-              }}
-            >
-              {source?.name}
-            </Card>
+            <Link to={source.link || "/"}>
+              <Card
+                onClick={() => {
+                  setSourceId(source.id);
+                }}
+              >
+                {source?.name}
+              </Card>
+            </Link>
           )}
         </Col>
       ))}
